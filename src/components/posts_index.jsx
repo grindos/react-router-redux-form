@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
   componentDidMount() {
-    
+    const { getPosts } = this.props;
+    getPosts();
   }
 
   render() {
@@ -15,5 +17,12 @@ class PostsIndex extends Component {
     );
   }
 }
+PostsIndex.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+};
 
-export default connect(null, { fetchPosts })(PostsIndex);
+const mapDispatchToProps = {
+  getPosts: fetchPosts,
+};
+
+export default connect(null, mapDispatchToProps)(PostsIndex);
