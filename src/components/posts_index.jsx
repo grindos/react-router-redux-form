@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions';
 
-const PostsIndex = () => (
-  <div>
-    Posts Index
-  </div>
-);
+class PostsIndex extends Component {
+  componentDidMount() {
+    
+  }
 
-export default PostsIndex;
+  render() {
+    return (
+      <div>
+        Posts Index
+      </div>
+    );
+  }
+}
+
+export default connect(null, { fetchPosts })(PostsIndex);
